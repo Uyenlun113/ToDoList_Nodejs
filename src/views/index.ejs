@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h2>To do list Nodejs - Express</h2>
+    <div class="container">
+      <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
+        <form action="/add-user" method="post">
+          <input type="text" name="name" placeholder="Nhập tên người dùng" />
+          <button type="submit" class="addBtn">Thêm mới</button>
+        </form>
+      </div>
+      <div style="display: flex">
+        <table id="myUL">
+          <tbody>
+            <% for(let i = 0; i < users.length; i++) { %>
+            <tr>
+              <td><%= users[i].name %></td>
+              <td class="buttons-cell">
+                <form action="/edit-user/<%= users[i].id %>" method="GET">
+                  <button type="submit">Edit</button>
+                </form>
+                <form action="/delete-user" method="POST">
+                  <input
+                    type="text"
+                    hidden
+                    value="<%= users[i].id %>"
+                    name="userId" />
+                  <button type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>

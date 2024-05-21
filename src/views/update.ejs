@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 50%;
+        min-width: 300px;
+        margin: 50px auto;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      .header {
+        background-color: #70c6ee;
+        padding: 30px 40px;
+        color: white;
+        text-align: center;
+      }
+
+      .header input {
+        margin-top: 10px;
+        width: calc(60% - 20px);
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .addBtn {
+        padding: 10px;
+        width: 20%;
+        background: #d9d9d9;
+        color: #555;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .addBtn:hover {
+        background-color: #bbb;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td.buttons-cell {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      td.buttons-cell button {
+        padding: 5px 10px;
+        border: none;
+        background-color: #3bab1f;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      td.buttons-cell button:hover {
+        background-color: #e31b0c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="myDIV" class="header">
+        <h2>Cập Nhật</h2>
+        <form action="/update-user" method="post">
+          <input
+            type="text"
+            name="name"
+            value="<%= dataUser.name %>"
+            placeholder="Nhập tên người dùng" />
+          <input type="text" value="<%= dataUser.id %>" hidden name="id" />
+          <button type="submit" class="addBtn">Cập nhật</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
